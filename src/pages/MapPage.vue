@@ -1,11 +1,3 @@
-
-<template>
-  <div>
-    <h1>地図画面</h1>
-    <div id="map" style="width: 100%; height: 400px;"></div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import * as maplibregl from 'maplibre-gl'
 import { onMounted } from 'vue'
@@ -14,12 +6,34 @@ import { onMounted } from 'vue'
 onMounted(() => {
   const map = new maplibregl.Map({
     container: 'map',
-    style: 'https://demotiles.maplibre.org/style.json',
-    center: [139.6917, 35.6895],
-    zoom: 10,
+    style: {
+      version: 8,
+      sources: {
+        pale: {
+          type: 'raster',
+          tiles: [
+            'https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png'
+          ],
+          tileSize: 256,
+          attribution: '地図データ：<a href="https://maps.gsi.go.jp/development/ichiran.html">国土地理院</a>'
+        }
+      },
+      layers: [
+        {
+          id: 'pale',
+          type: 'raster',
+          source: 'pale',
+        }
+      ]
+    },
+    center: [139.735028, 35.693825], // 市ヶ谷駅
+    zoom: 16,
   })
 
-  new maplibregl.Marker().setLngLat([139.6917, 35.6895]).addTo(map)
+  new maplibregl.Marker().setLngLat([139.735028, 35.693825]).addTo(map)
 })
 
 </script>
+<template>
+  <div id="map" class="fixed inset-x-0 top-16 w-screen h-[calc(100vh-4rem)] z-0"></div>
+</template>

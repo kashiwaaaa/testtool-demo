@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "target": "ESNext",              // もしくは "ES2017" 以上
-    "module": "ESNext",
-    "moduleResolution": "Node",
+  "module": "Node16",
+  "moduleResolution": "node16",
     "strict": true,
     "jsx": "preserve",
     "lib": ["ESNext", "DOM"],        // ← Promise を含む ES2015 以上を指定

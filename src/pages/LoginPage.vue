@@ -20,28 +20,57 @@ function handleLogin() {
 </script>
 
 
+
 <template>
-  <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-indigo-200">
-    <div class="card w-full max-w-md bg-base-100 shadow-2xl rounded-2xl">
-      <div class="card-body">
-        <h1 class="text-4xl font-extrabold text-center text-primary mb-6 tracking-tight">ログイン</h1>
-        <form @submit.prevent="handleLogin" class="flex flex-col gap-4">
-          <label class="form-control w-full">
-            <div class="label">
-              <span class="label-text">ユーザー名</span>
-            </div>
-            <input v-model="name" type="text" placeholder="ユーザー名" class="input input-bordered input-primary w-full" />
-          </label>
-          <label class="form-control w-full">
-            <div class="label">
-              <span class="label-text">パスワード</span>
-            </div>
-            <input v-model="password" type="password" placeholder="パスワード" class="input input-bordered input-primary w-full" />
-          </label>
-          <button type="submit" class="btn btn-primary w-full mt-2">ログイン</button>
-          <p v-if="error" class="text-error text-center mt-2">{{ error }}</p>
-        </form>
-      </div>
+  <div class="min-h-screen flex items-center justify-center bg-gray-500 px-4">
+    <div class="w-full max-w-sm bg-white shadow-lg rounded-lg p-8 border border-gray-200">
+      
+
+
+      <!-- タイトル -->
+      <h2 class="text-2xl font-bold text-center text-green-600 mb-6">ログイン画面</h2>
+
+      <form @submit.prevent="handleLogin" class="space-y-5">
+        <!-- ユーザー名 -->
+          <div class="form-control">
+            <input
+              v-model="name"
+              type="text"
+              placeholder="test"
+              class="input input-bordered w-full text-base"
+              required
+              data-test="username"
+            />
+          </div>
+
+        <!-- パスワード -->
+          <div class="form-control">
+            <input
+              v-model="password"
+              type="password"
+              placeholder="1234"
+              class="input input-bordered w-full text-base"
+              required
+              data-test="password"
+            />
+          </div>
+
+        <!-- ボタン -->
+          <button
+            type="submit"
+            class="btn btn-success w-full text-base font-semibold"
+            data-test="login-btn"
+          >
+            ログイン
+          </button>
+
+        <!-- エラーメッセージ -->
+          <div v-if="error" class="alert alert-error mt-3 py-2 px-4 text-sm text-center" data-test="login-error">
+            {{ error }}
+          </div>
+      </form>
+
+
     </div>
   </div>
 </template>

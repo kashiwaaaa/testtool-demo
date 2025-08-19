@@ -1,16 +1,4 @@
 
-<template>
-  <div>
-    <nav>
-      <router-link to="/map">Map</router-link> |
-      <router-link to="/settings">Settings</router-link>
-      <button @click="logout" style="float:right">ログアウト</button>
-    </nav>
-    <main>
-      <router-view />
-    </main>
-  </div>
-</template>
 
 <script setup lang="ts">
 
@@ -25,19 +13,20 @@ function logout() {
   router.push('/')
 }
 </script>
+<template>
+  <div>
+  <nav class="bg-gray-100 p-4 flex items-center h-16">
+      <router-link to="/map" class="mx-4 no-underline text-gray-800" active-class="font-bold text-green-500">Map</router-link>
+      <span>|</span>
+      <router-link to="/settings" class="mx-4 no-underline text-gray-800" active-class="font-bold text-green-500">Settings</router-link>
+      <button @click="logout" class="ml-auto float-right text-red-500">ログアウト</button>
+    </nav>
+    <main>
+      <router-view />
+    </main>
+  </div>
+</template>
 
-<style scoped>
-nav {
-  background: #f5f5f5;
-  padding: 1rem;
-}
-nav a {
-  margin: 0 1rem;
-  text-decoration: none;
-  color: #333;
-}
-nav a.router-link-exact-active {
-  font-weight: bold;
-  color: #42b983;
-}
-</style>
+
+
+

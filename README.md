@@ -1,5 +1,29 @@
-# Vue 3 + Vite
+## 環境
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+```bash
+vue3
+daisy-ui
+tailwindcss
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+```
+
+
+## セットアップ方法
+
+1. 依存パッケージのインストール
+
+```bash
+pnpm install
+```
+
+2. 開発サーバーの起動
+
+```bash
+pnpm dev
+```
+
+## テストの実行方法
+
+```bash
+pnpm test
+```
